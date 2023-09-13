@@ -3,6 +3,9 @@
   hosts: master01
   become: true
   
+  vars:
+    USER: vagrant
+
   tasks:
     - name: Install wget
       dnf:
@@ -11,11 +14,9 @@
     - name: Download K3d install script
       get_url:
         dest: /opt
-        owner: vagrant
+        owner: "{{ USER }}"
         url: https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh
     - name: Run K3d install script
       shell:
         chmod +x /opt/install.sh && /opt/install.sh
       ignore_errors: true
-
-         
