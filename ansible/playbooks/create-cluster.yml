@@ -1,0 +1,10 @@
+---
+- name: Create cluster in K3d
+  hosts: master01
+  become: false
+
+  tasks:
+    - name: Create cluster
+      shell:
+        k3d cluster create lab-k3d
+    
