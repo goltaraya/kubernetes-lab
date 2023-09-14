@@ -10,4 +10,3 @@
     - name: Create cluster
       shell:
         k3d cluster create lab-k3d
-    
