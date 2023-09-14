@@ -4,6 +4,9 @@
   become: false
 
   tasks:
+    - name: Remove previous cluster
+      shell:
+        k3d cluster rm lab-k3d
     - name: Create cluster
       shell:
         k3d cluster create lab-k3d
