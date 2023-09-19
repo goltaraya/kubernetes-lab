@@ -1,0 +1,13 @@
+---
+- name: Run NGINX
+  hosts: master01
+  become: false
+
+  tasks:
+    - name: Deploy NGINX container
+      community.docker.docker_container:
+        name: nginx
+        image: nginx:1.25.2
+        ports:
+          - 8080:80
+        state: started
