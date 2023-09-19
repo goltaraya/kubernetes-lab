@@ -46,3 +46,6 @@
       dnf:
         name: python3-pip
         state: latest
+    - name: Installing Docker SDK module for python
+      shell:
+        pip3 install docker

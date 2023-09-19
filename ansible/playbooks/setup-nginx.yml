@@ -1,0 +1,15 @@
+---
+- name: Run NGINX
+  hosts: master01
+  become: true
+
+  tasks:
+    - name: Installing NGINX
+      dnf:
+        name:
+          - nginx
+        state: latest
+    - name: Start NGINX
+      systemd:
+        name: nginx
+        state: restarted
